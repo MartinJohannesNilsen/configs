@@ -99,38 +99,14 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
 export PATH="$HOME/.local/bin:$PATH"
 export FZF_BASE=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf/
-# export FZF_DEFAULT_COMMAND='<your fzf default command>'
+export FZF_DEFAULT_COMMAND="find . \( -name node_modules -o -name .git -o -name .venv \) -prune -o -print" # Hide Node modules, git or Python venv files
+export FZF_DEFAULT_OPTS="--height=40% --layout=reverse" # Set height and reversed layout (selector below)
 ZOXIDE_CMD_OVERRIDE="cd"
 DISABLE_FZF_AUTO_COMPLETION="false"
 DISABLE_FZF_KEY_BINDINGS="false"
 
+# Source changes
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
 ########################
@@ -146,8 +122,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Aliases
-# alias python=python3
-# alias pip=pip3
 alias venvsetup="python -m venv .venv; source .venv/bin/activate"
 alias venvactivate="source .venv/bin/activate"
 alias venvreqs="pip freeze > requirements.txt"
