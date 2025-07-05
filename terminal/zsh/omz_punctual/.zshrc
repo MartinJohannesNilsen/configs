@@ -178,12 +178,24 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Rust
-# source "$HOME/.cargo/env"
-
 # Aliases
 alias python="python3"
 alias pip="python -m pip"
 alias venvsetup="python -m venv .venv; source .venv/bin/activate"
 alias venvactivate="source .venv/bin/activate"
 alias venvreqs="pip freeze > requirements.txt"
+
+# Rust
+# source "$HOME/.cargo/env"
+
+# GO
+# export GOROOT=/usr/local/go
+# export GOPATH=$HOME/Documents/go
+# export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+# CLI
+# alias unigrade='/Users/martinjohannesnilsen/Computer/Code/cli/unigrade/unigrade'
+# alias setuplatex='/Users/martinjohannesnilsen/Computer/Code/cli/setuplatex/setuplatex'
+# alias pdf2images='/Users/martinjohannesnilsen/Computer/Code/cli/pdf2images/pdf_converter.sh'
+# alias initdocs='/Users/martinjohannesnilsen/Computer/Code/cli/initdocs/dist/initdocs'
+# alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
