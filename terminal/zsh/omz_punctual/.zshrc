@@ -66,6 +66,10 @@ DISABLE_AUTO_TITLE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+
+#############
+## Plugins ##
+#############
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -100,16 +104,70 @@ DISABLE_FZF_KEY_BINDINGS="false"
 source $ZSH/oh-my-zsh.sh
 
 
-########################
-### My own additions ###
-########################
-
-# LSColors
+####################
+## Visual Changes ##
+####################
+# Set listing colors
 export CLICOLOR=1
 export CLICOLOR_FORCE=1
-export LSCOLORS="exgxfxdacxDaDaxbadacex" # macOS color for ls command (or BSD systems) 
+export LSCOLORS="exgxfxdacxDaDaxbadacex" # macOS color for ls command (or BSD systems)
 export LS_COLORS="di=34;40:ln=36;40:so=35;40:pi=33;40:ex=32;40:bd=1;33;40:cd=1;33;40:su=0;41:sg=0;43:tw=0;42:ow=34;40:" # Linux color for ls command (or GNU systems)
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} # Sets the color for zsh autocomplete
+
+# Suppress login banner (Mac specific)
+touch ~/.hushlogin
+
+# Disable default virtual env prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+# Punctual prompt configurations
+PUNCTUAL_SHOW_BLANK_LINE="false"
+PUNCTUAL_SHOW_INDENT="false"
+PUNCTUAL_SHOW_TIMESTAMP="true"
+PUNCTUAL_SHOW_USER="false"
+PUNCTUAL_SHOW_HOSTNAME="false"
+PUNCTUAL_SHOW_CURRENT_DIR="true"
+PUNCTUAL_SHOW_GIT="true"
+PUNCTUAL_SHOW_PYTHON_ENVIRONMENT="true"
+
+PUNCTUAL_TIMESTAMP_COLOUR="white"
+PUNCTUAL_USER_COLOUR="blue"
+PUNCTUAL_ROOT_USER_COLOUR="red"
+PUNCTUAL_HOSTNAME_COLOUR="cyan"
+PUNCTUAL_CURRENT_DIR_COLOUR="green"
+PUNCTUAL_GIT_COLOUR="magenta"
+PUNCTUAL_PYTHON_ENVIRONMENT_COLOUR="yellow"
+
+PUNCTUAL_TIMESTAMP_BOLD="false"
+PUNCTUAL_USER_BOLD="false"
+PUNCTUAL_ROOT_USER_BOLD="false"
+PUNCTUAL_HOSTNAME_BOLD="false"
+PUNCTUAL_CURRENT_DIR_BOLD="false"
+PUNCTUAL_GIT_BOLD="false"
+PUNCTUAL_PYTHON_ENVIRONMENT_BOLD="false"
+
+PUNCTUAL_TIMESTAMP_FORMAT="%H:%M:%S"
+
+PUNCTUAL_CURRENT_DIR_RELATIVE_PATH="true"
+PUNCTUAL_CURRENT_DIR_RELATIVE_DEPTH="3"
+
+PUNCTUAL_PROMPT=">"
+
+PUNCTUAL_GIT_SYMBOL_UNTRACKED="?"
+PUNCTUAL_GIT_SYMBOL_ADDED="+"
+PUNCTUAL_GIT_SYMBOL_MODIFIED="!"
+PUNCTUAL_GIT_SYMBOL_RENAMED="!"
+PUNCTUAL_GIT_SYMBOL_DELETED="!"
+PUNCTUAL_GIT_SYMBOL_STASHED="*"
+PUNCTUAL_GIT_SYMBOL_UNMERGED="M"
+PUNCTUAL_GIT_SYMBOL_AHEAD="↑"
+PUNCTUAL_GIT_SYMBOL_BEHIND="↓"
+PUNCTUAL_GIT_SYMBOL_DIVERGED="~"
+
+
+#############
+## Configs ##
+#############
 
 # Homebrew
 export PATH=/opt/homebrew/bin:$PATH
@@ -121,9 +179,11 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Rust
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 # Aliases
+alias python="python3"
+alias pip="python -m pip"
 alias venvsetup="python -m venv .venv; source .venv/bin/activate"
 alias venvactivate="source .venv/bin/activate"
 alias venvreqs="pip freeze > requirements.txt"
